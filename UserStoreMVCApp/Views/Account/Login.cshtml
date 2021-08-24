@@ -1,0 +1,29 @@
+﻿<div class=" container">
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+
+        <div class="row">
+            <h2 style="text-align: center; color:  dodgerblue" class="fst-italic fw-bold">Login</h2>
+        </div>
+
+        <div class="row">
+            @Html.Label("lblUserName", "User Name", new { @class = "form-label fw-bold", style = "color:darksalmon", @data_val = true, @data_val_required = "User Name is required" })
+            @Html.TextBox("UserName", null, new { @class = "form-control " }) 
+            <span class="field-validation-valid error" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="row">
+            @Html.Label("lblPassword", "Password", new { @class = "form-label fw-bold", style = "color:darksalmon" })
+            @Html.TextBox("Password", null, new { @class = "form-control " })
+            @Html.ValidationMessage("Password")
+        </div>
+        <div class="row mt-4">
+
+            <div class="col-3">
+                <input type="submit" value="Login" class="btn btn-sm btn-success " />
+                @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn btn-danger btn-sm" })
+            </div>
+        </div>
+    }
+</div>

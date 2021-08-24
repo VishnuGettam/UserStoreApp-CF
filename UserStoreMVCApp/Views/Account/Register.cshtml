@@ -1,0 +1,49 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityUser
+
+<div class=" container">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+
+        <div class="row">
+            <h2 style="text-align: center; color:  dodgerblue" class="fst-italic fw-bold">User Registration</h2>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(m => m.UserName, new { @class = "form-label fw-bold", style = "color:darksalmon", @data_val = true, @data_val_required = "User Name is required" })
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control " })
+            @Html.ValidationMessageFor(m => m.UserName)
+            <span class="field-validation-valid error" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="row">
+            @Html.Label("lblPassword", "Password", new { @class = "form-label fw-bold", style = "color:darksalmon" })
+            @Html.TextBox("Password", null, new { @class = "form-control " })
+            @Html.ValidationMessage("Password")
+        </div>
+
+        <div class="row">
+            @Html.Label("lblConfirmPassword", "Confirm Password", new { @class = "form-label fw-bold", style = "color:darksalmon" })
+            @Html.TextBox("ConfirmPassword", null, new { @class = "form-control " })
+            @Html.ValidationMessage("ConfirmPassword")
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "form-label fw-bold", style = "color:darksalmon" })
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control " })
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold", style = "color:darksalmon" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control " })
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-3">
+                <input type="submit" value="Create User" class="btn btn-sm btn-success " />
+                @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn btn-danger btn-sm" })
+            </div>
+        </div>
+    }
+</div>
